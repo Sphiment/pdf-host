@@ -1,0 +1,219 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, sans-serif;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toolbar styles */
+.toolbar {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.toolbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.controls button {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.controls button:hover {
+  background-color: #555;
+}
+
+.controls button:disabled {
+  background-color: #222;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.controls input[type="file"] {
+  color: #fff;
+  background-color: #333;
+  border: 1px solid #555;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.controls span {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Viewer container */
+.viewer-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  background-color: #2a2a2a;
+  position: relative;
+}
+
+#pdf-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 2rem;
+}
+
+#pdf-canvas {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background-color: #fff;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Loading and error states */
+.loading, .error, .no-pdf {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+.no-pdf {
+  max-width: 400px;
+  padding: 2rem;
+}
+
+.no-pdf h3 {
+  margin-top: 0;
+  color: #fff;
+}
+
+.no-pdf p {
+  margin-bottom: 0;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .toolbar h1 {
+    font-size: 1.2rem;
+  }
+  
+  .controls {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .controls button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  #pdf-container {
+    padding: 1rem;
+  }
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  
+  .toolbar {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .toolbar h1 {
+    color: #333;
+  }
+  
+  .controls button {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+  
+  .controls button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .controls button:disabled {
+    background-color: #f5f5f5;
+    color: #999;
+  }
+  
+  .controls input[type="file"] {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+  
+  .controls span {
+    color: #333;
+  }
+  
+  .viewer-container {
+    background-color: #f8f9fa;
+  }
+  
+  .loading {
+    color: #333;
+  }
+}

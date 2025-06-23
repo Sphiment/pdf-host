@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Viewer</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="toolbar">
+        <h1>PDF Viewer</h1>
+        <div class="controls">
+          <input type="file" id="file-input" accept=".pdf" />
+          <button id="prev-page">Previous</button>
+          <span id="page-info">Page 1 of 1</span>
+          <button id="next-page">Next</button>
+          <button id="zoom-out">-</button>
+          <span id="zoom-level">100%</span>
+          <button id="zoom-in">+</button>
+        </div>
+      </header>
+      <main class="viewer-container">
+        <div id="pdf-container">
+          <canvas id="pdf-canvas"></canvas>
+        </div>
+        <div id="loading" class="loading">Loading main.pdf...</div>
+        <div id="no-pdf" class="no-pdf">
+          <h3>No PDF loaded</h3>
+          <p>Click "Choose File" to select a PDF file to view, or add a file named "main.pdf" to automatically load it.</p>
+        </div>
+        <div id="error" class="error" style="display: none;">
+          Error loading PDF. Please try again.
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
